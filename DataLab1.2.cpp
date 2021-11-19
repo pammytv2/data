@@ -115,7 +115,7 @@ double data; //Declare data variable for keep Single Precision float types
 }
 void  testlongInt(){
 	long int data; //Declare data variable for keep Single Precision float types
-	printf("\nSingle Precision longdouble MODE (3.4E-4932 to 1.1E+4932)"); 
+	printf("\nSingle Precision longing MODE (-2,147,483,648 to 2,147,483,647)"); 
     printf("\n______________________________\n");
     printf("Enter Raw Data ");
     scanf("%li", &data);
