@@ -100,30 +100,31 @@ void SFloat () // Test Data in Single Percision Float Mode
 }//Void SFloat
 void Adouble(){
 
-float data; //Declare data variable for keep Single Precision float types
+double data; //Declare data variable for keep Single Precision float types
 
-    printf("\nDouble Precision daouble MODE (1.7E-308 to 1.7E+308)"); 
+    printf("\nDouble Precision double MODE (1.7E-308 to 1.7E+308)"); 
     printf("\n______________________________\n");
     printf("\nEnter Raw Data ");
     scanf("%lf", &data);
-    printf("Data in Decimal = %.2fD\n", data); //Show in Decimal format
+    printf("Data in Decimal = %lfD\n", data); //Show in Decimal format
     printf("Data in Hexamal = %xH\n", data); //Show in Haxamal format
     printf("Data in Binary  = "); 
     DecToBin (data, sizeof(data)); //Show in Binary format 
     printf("Size            = %d Bytes\n", sizeof(data)); //Show size of unsigned integer
     getch(); //Wait for press any key
 }
-void  Blongdouble(){
-long double data; //Declare data variable for keep Single Precision float types
-printf("\nSingle Precision longdouble MODE (3.4E-4932 to 1.1E+4932)"); 
+void  testlongInt(){
+	long int data; //Declare data variable for keep Single Precision float types
+	printf("\nSingle Precision longdouble MODE (3.4E-4932 to 1.1E+4932)"); 
     printf("\n______________________________\n");
     printf("Enter Raw Data ");
-    scanf("%Lf ", &data);
-    printf("Data in Decimal = %.2Lf\n", data); //Show in Decimal format
+    scanf("%li", &data);
+    printf("Data in Decimal = %li\n", data); //Show in Decimal format
     printf("Data in Hexamal = %xH\n", data); //Show in Haxamal format
     printf("Data in Binary  = "); 
     DecToBin (data, sizeof(data)); //Show in Binary format 
     printf("Size            = %d Bytes\n", sizeof(data)); //Show size of unsigned integer
+    
     getch(); //Wait for press any keyt
 
 }
@@ -134,11 +135,8 @@ int main(){
         
         
         printf("(1) Unsign ShortInt\n(2) Boolean\n(3) Unsigned Int\n(4) Character\n");
-        printf("(5) Single Prec Float\n(6) double\n(7) long double\n(0) Exit\n"); //Show MENU 
+        printf("(5) Single Prec Float\n(6) Double\n(7) Long Int\n(0) Exit\n"); //Show MENU 
         printf("\n"); //Line Feed
-
-       
-       
        
         ch = getch(); //Wait and read KBD with out ENTER Pressed
 
@@ -154,9 +152,9 @@ int main(){
                     break;
         case '5'  : SFloat();
                     break;
-        case '6'   :   Adouble();
+        case '6'  : Adouble();
                     break;
-        case '7'   :   Blongdouble();
+        case '7'  : testlongInt();
                     break;
         case '0':
                     break;
@@ -167,6 +165,3 @@ int main(){
 printf("\n"); //line feed
 return 0;
 }//End main
-
-
-
