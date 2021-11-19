@@ -9,7 +9,7 @@ void DecToBin(int data2,int byt) //Convert Decimal To Binary as byt Bytes
 		bits = ( byt * 8 ) - 1; //Calculate total bits started at bit no 0
 		for ( count = bits; count >= 0; count-- ){
 			chk = data2 >> count; //shift right count bits of data2 and keep in to chk
-			if (chk & 1) // conpare with '00000001'
+			if (chk & 1) // conpare with '0000 0001'
 				printf( "1" ); //if true
 			else
 				printf( "0" ); //if false
@@ -18,7 +18,6 @@ void DecToBin(int data2,int byt) //Convert Decimal To Binary as byt Bytes
 		}//end for
 		printf("B\n");
 	}//end void
-
 void UnsignedShortInt() //Test Data in Unsigned Short Integer Mode
     {
     unsigned short int data ; //Declare data variable for keep short unsigned integer types
@@ -72,7 +71,7 @@ void Boolean()//Test Data in Boolean Mode
 void Character() //Test Data in Character Mode
 	{
 	char data; //Declare data variable for keep Character type
-	printf( "\nCHARACTER MODE (0 to 255)\n" );
+	printf( "\nCHARACTER MODE (Aa to Zz)\n" );
 	printf( "______________________________\n" );
 	printf( " Enter Raw Data " );
 	scanf ( "%c", &data );
@@ -101,22 +100,22 @@ void SFloat () // Test Data in Single Percision Float Mode
 }//Void SFloat
 void Adouble(){
 
-double data; //Declare data variable for keep Single Precision float types
-printf("\nSingle Precision Float MODE (1.7E-308 to 1.7E+308)"); 
+float data; //Declare data variable for keep Single Precision float types
+
+    printf("\nDouble Precision daouble MODE (1.7E-308 to 1.7E+308)"); 
     printf("\n______________________________\n");
-    printf("Enter Raw Data ");
-    scanf("%lf ", &data);
-    printf("Data in Decimal = %.2lf\n", data); //Show in Decimal format
+    printf("\nEnter Raw Data ");
+    scanf("%lf", &data);
+    printf("Data in Decimal = %.2fD\n", data); //Show in Decimal format
     printf("Data in Hexamal = %xH\n", data); //Show in Haxamal format
     printf("Data in Binary  = "); 
     DecToBin (data, sizeof(data)); //Show in Binary format 
     printf("Size            = %d Bytes\n", sizeof(data)); //Show size of unsigned integer
-    getch(); //Wait for press any keyt
-
+    getch(); //Wait for press any key
 }
 void  Blongdouble(){
 long double data; //Declare data variable for keep Single Precision float types
-printf("\nSingle Precision long MODE (3.4E-4932 to 1.1E+4932)"); 
+printf("\nSingle Precision longdouble MODE (3.4E-4932 to 1.1E+4932)"); 
     printf("\n______________________________\n");
     printf("Enter Raw Data ");
     scanf("%Lf ", &data);
@@ -132,10 +131,15 @@ int main(){
     printf("\nDATA REPRESENTATION PROGRAM..\n"); 
     printf("______________________________\n");
     while (ch !='0') {
-        printf("\n(1) Unsign ShortInt (2) Boolean (3) Unsigned Int (4) Character\n");
-        printf("(5) Single Prec Float   (6)double  (7)long double (0) Exit  "); //Show MENU 
+        
+        
+        printf("(1) Unsign ShortInt\n(2) Boolean\n(3) Unsigned Int\n(4) Character\n");
+        printf("(5) Single Prec Float\n(6) double\n(7) long double\n(0) Exit\n"); //Show MENU 
         printf("\n"); //Line Feed
 
+       
+       
+       
         ch = getch(); //Wait and read KBD with out ENTER Pressed
 
         switch(ch) //Check ch
@@ -154,6 +158,8 @@ int main(){
                     break;
         case '7'   :   Blongdouble();
                     break;
+        case '0':
+                    break;
         default : printf("\nInvalid Input\n");
         }//End switch case
     }//End While Loop
@@ -161,6 +167,5 @@ int main(){
 printf("\n"); //line feed
 return 0;
 }//End main
-
 
 
