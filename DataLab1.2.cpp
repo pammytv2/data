@@ -9,7 +9,7 @@ void DecToBin(int data2,int byt) //Convert Decimal To Binary as byt Bytes
 		bits = ( byt * 8 ) - 1; //Calculate total bits started at bit no 0
 		for ( count = bits; count >= 0; count-- ){
 			chk = data2 >> count; //shift right count bits of data2 and keep in to chk
-			if (chk & 1) // conpare with '0000 0001'
+			if (chk & 1) // conpare with '0000 0001
 				printf( "1" ); //if true
 			else
 				printf( "0" ); //if false
@@ -126,8 +126,28 @@ void  testlongInt(){
     printf("Size            = %d Bytes\n", sizeof(data)); //Show size of unsigned integer
     
     getch(); //Wait for press any keyt
-
+    
+    
 }
+    void Hint(){
+    int data;	
+    printf("\nSingle Precision unsignedlongint MODE (-2,147,483,648 to 2,147,483,647)"); 
+    printf("\n______________________________\n");
+    printf("Enter Raw Data ");
+    scanf("%d", &data);
+    printf("Data in Decimal = %dD\n", data); //Show in Decimal format
+    printf("Data in Hexamal = %xH\n", data); //Show in Haxamal format
+    printf("Data in Binary  = "); 
+    DecToBin (data, sizeof(data)); //Show in Binary format 
+    printf("Size            = %d Bytes\n", sizeof(data)); //Show size of unsigned integer
+    
+    getch(); //Wait for press any keyt
+	
+	
+	
+	}
+
+
 int main(){
     printf("\nDATA REPRESENTATION PROGRAM..\n"); 
     printf("______________________________\n");
@@ -135,7 +155,7 @@ int main(){
         
         
         printf("(1) Unsign ShortInt\n(2) Boolean\n(3) Unsigned Int\n(4) Character\n");
-        printf("(5) Single Prec Float\n(6) Double\n(7) Long Int\n(0) Exit\n"); //Show MENU 
+        printf("(5) Single Prec Float\n(6) Double\n(7)Long Int\n(8) int\n(0) Exit\n");  //Show MENU 
         printf("\n"); //Line Feed
        
         ch = getch(); //Wait and read KBD with out ENTER Pressed
@@ -156,7 +176,9 @@ int main(){
                     break;
         case '7'  : testlongInt();
                     break;
-        case '0':
+        case '8'   :Hint();
+        			break;
+		case '0':
                     break;
         default : printf("\nInvalid Input\n");
         }//End switch case
@@ -165,3 +187,4 @@ int main(){
 printf("\n"); //line feed
 return 0;
 }//End main
+
