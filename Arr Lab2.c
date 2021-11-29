@@ -13,6 +13,7 @@
 
 int*BA1 ,*BA2,*BA3,*p; //Base address of each dimension and move pointer
 int i,j,k; //subscript of array
+char ch,ch1;
 
 
 
@@ -63,7 +64,7 @@ int element,c,totle_mem;//Variable uses
 element=(u1-l1+1)*(u2-l2+1)*(u3-l3+1); //Calculate element
 c = sizeof(*BA3); //Calculate size each block of array
 totle_mem = element * c; //Calculate total size of array
-BA3 = (int*)malloc(totle_mem); //Allocate memory
+BA3 = (int*)malloc(totle_mem); //Allocate memory 
 
 }
 void A3(int i,int j,int k,int x){
@@ -76,7 +77,75 @@ int ReadA3(int i,int j,int k){
     p=BA3+(i-l1)*(u2-l2+1)*(u3-l3+1)+(j-l2)*(u3-l3+1)+(k-l3); //Calculata position of array
     return (*p); //Read array
 }
+
 //---------------------------------------------------------------------------------------------------------------------
+
+void PCR(int i,int j,int k,int x){
+    //Print Array 3 dimension
+    p=BA3+(i-l1)*(u2-l2+1)*(u3-l3+1)+(k-l3)*(u2-l2+1)+(j-l2); //Calculata position of array
+    *p=x; //Put array
+
+}
+int ReadPCR(int i,int j,int k){
+    //Read data from Array 3 dimension
+    p=BA3+(i-l1)*(u2-l2+1)*(u3-l3+1)+(k-l3)*(u2-l2+1)+(j-l2); //Calculata position of array
+    return (*p); //Read array
+}
+//---------------------------------------------------------------------------------------------------------------------
+void RPC(int i,int j,int k,int x){
+
+    //Print Array 3 dimension
+    p=BA3+(j-l2)*(u1-l1+1)*(u3-u3+1)+(i-l1)*(u3-l1+1)+(k-l3); //Calculata position of array
+    *p=x; //Put array
+
+}
+int ReadRPC(int i,int j,int k){
+    //Read data from Array 3 dimension
+    p=BA3+(j-l2)*(u1-l1+1)*(u3-u3+1)+(i-l1)*(u3-l1+1)+(k-l3);
+    return (*p); //Read array
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void RCP(int i,int j,int k,int x){
+    //Print Array 3 dimension
+    p=BA3+(j-l2)*(u1-l1+1)(u3-l3+1)+(k-l3)(u1-l1+1)+(i-l1); //Calculata position of array
+    *p=x; //Put array
+
+}
+int ReadRCP(int i,int j,int k){
+    //Read data from Array 3 dimension
+    p=BA3+(j-l2)*(u1-l1+1)(u3-l3+1)+(k-l3)(u1-l2+1)+(i-l1);
+    return (*p); //Read array
+
+
+//---------------------------------------------------------------------------------------------------------------------
+void CPR(int i,int j,int k,int x){
+    //Print Array 3 dimension
+   P=BA3+(k-l3)(u1-l1+1)(u2-l2+1)+(i-l1)(u2-l2+1)+(j-l) //Calculata position of array
+    *p=x; //Put array
+
+}
+int ReadCPR(int i,int j,int k){
+    //Read data from Array 3 dimension
+    p=BA3+(k-l3)(u1-l1+1)(u2-l2+1)+(i-l1)(u2-l2+1)+(j-l)
+    return (*p); //Read array
+}
+//---------------------------------------------------------------------------------------------------------------------
+
+void CRP(int i,int j,int k,int x){
+    //Print Array 3 dimension
+    p=BA3+(k-l3)(u1-l1+1)(u2-l2+1)+(j-l2)(u1-l1+1)+(i-l1); //Calculata position of array
+    *p=x; //Put array
+
+}
+int ReadCRP(int i,int j,int k){
+    //Read data from Array 3 dimension
+    p=BA3+(k-l3)(u1-l1+1)(u2-l2+1)+(j-l2)(u1-l1+1)+(i-l1);
+    return (*p); //Read array
+}
+
+//----------------------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -84,32 +153,38 @@ int ReadA3(int i,int j,int k){
 
 int main(){
     printf("1-3 DIMENSION ARRAY FUNCTION....\n");
-    printf("_________________________________________\n");
+    printf("_\n");
     // Creata Array......
-    Create1DArray();
-    Create2DArray();
-    Create3DArray();
-    
-//Using 1 Dimension Array...
-
-    i=2;
-    A1(i,9);
-    printf("\nA1(%d)=%d",i,ReadA1(i));
-    //Using 2 Dimension Array...
-    i=2; j=3;
-    A2(i,j,99);
-    printf("\nA2(%d,%d)=%d",i,j,ReadA2(i,j));
-    //Using 3 Dimension Array...
-    i=2; j=3; k=5;
-    A3(i,j,k,999);
-    printf("\nA3(%d,%d,%d)=%d",i,j,k,ReadA3(i,j,k));
+    while(ch!='0'){
+        printf("\n(1)  \n(2)  \n(3)  \n"); //Show MENU 
+        printf("\n"); 
+        ch = getch(); //Wait and read KBD with out ENTER Pressed
+    system("cls");
+        switch(ch) //Check ch
+            {
+        case '1'  : Create1DArray();
+                         i=2;
+                        A1(i,9);
+                        printf("\nA1(%d)=%d",i,ReadA1(i));
+                    break;
+        case '2'  : Create2DArray();
+                    i=2; j=3;
+                    A2(i,j,99);
+                    printf("\nA2(%d,%d)=%d",i,j,ReadA2(i,j));
+                    break;
+        case '3'  : Create3DArray();
+                    i=2; j=3; k=5;
+                    A3(i,j,k,999);
+                       printf("\nA3(%d,%d,%d)=%d",i,j,k,ReadA3(i,j,k));
+                    break;
+        case '0'  : exit(0);
+            }
     getch(); //Wait for key
     free(BA1); //Free memory
     free(BA2); //Free memory
     free(BA3); //Free memory
 
-
-
-
-    return 0;
+   
 }//END Main
+    return 0;
+}//END Program
