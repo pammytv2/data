@@ -168,12 +168,14 @@ int ReadA3CRP(int i, int j, int k)
 int main()
 {
     printf("1-3 DIMENSION ARRAY FUNCTION....\n");
+    
     printf("\n");
     // Creata Array......
     while (ch != '0')
-    {
+    {   printf("\n");
         printf("Select Array dimension\n");
-        printf("\n(1)1DArray \n(2)2DArray  \n(3)3DArray  \n"); // Show MENU
+        printf("-------------------------------------------\n");
+        printf("(1)1DArray \n(2)2DArray  \n(3)3DArray  \n"); // Show MENU
         printf("\n");
         ch = getch(); // Wait and read KBD with out ENTER Pressed
         system("cls");
@@ -191,7 +193,10 @@ int main()
             break;
             // -----------------------------2D Array---------------------------------------------------------------
         case '2':
+            printf("\n");
+             printf("------MENU------\n");
             printf("\n(1) Put Column Major\n(2) Put Row Major\n");
+            printf("\n--------------------------------------------\n");
             printf("\n2DArray EnterNum(1-2) :");
             scanf("%d", &ch1);
             switch (ch1)
@@ -221,8 +226,10 @@ int main()
             // -------------------------------3D Array----------------------------------------------------
         case '3':
             
-            
+            printf("\n");
+            printf("------MENU------\n");
             printf("\n(1)Plane_Row_Colume\n(2)Plane_Colume_Row\n(3)Row_Plane_Colume\n(4)Row_Colume_Plane\n(5)Colume_Plane_Row\n(6)Colume_Row_Plane\n");
+            printf("\n---------------------------------------------------------------------------\n");
             printf("\n3DArray EnterNum(1-6) :");
             scanf("%d", &ch1);
             switch (ch1)
