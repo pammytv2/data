@@ -68,7 +68,7 @@ void push(char oper)
         Ostp[SP] = oper;
     }
 }
-float pop()
+int pop()
 {
     char oper;
     if (SP != 0)
@@ -175,7 +175,7 @@ void CalPostfix()
     for (i = 0; i <= count; i++)
     {
         ch = temp[i];
-        if (strchr("+-*/",ch)==0)
+        if (strchr("+-)*/(^",ch)==0)
         {
             printf("\nAssing Number to %c :", ch);
             scanf("%f", &ValPostfix[i]);
@@ -184,7 +184,12 @@ void CalPostfix()
     for (i = 0; i <= count; i++)
     {
         ch = temp[i];
-        if (strchr("+-*/()^", ch) == 0)
+        
+        if( strchr("()",ch) != 0){
+        	continue;
+		}
+        
+        if (strchr("+-*/^", ch) == 0)
         {
             pushAV(ValPostfix[i]);
         }
